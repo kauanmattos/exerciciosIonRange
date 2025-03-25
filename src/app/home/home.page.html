@@ -1,23 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Conversor de Unidades de Medida
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div id="container">
+    <div class="centro">
+      <ion-input type="number" [(ngModel)]="valorOriginal" (ionChange)="converterUnidades()"  style="width: 50px; margin-bottom: 10px;"></ion-input>
+      <ion-label>Valor Original = {{valorOriginal}}</ion-label>
+    </div>
 
-    <ion-range (ionChange)="onIonChange($event)"></ion-range>
+    <h2>Unidade de Entrada</h2>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="unidadeEntrada">
+        <ion-item>
+          <ion-radio value="km">Quilômetros (km)</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="m">Metros (m)</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="cm">Centimetros (cm)</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
 
-    <ion-range (ionChange)="onIonChange($event)" [ticks]="true" [snaps]="true" [min]="0" [max]="10" ></ion-range>
+    <h2>Unidade de Saída</h2>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="unidadeSaida">
 
-    <ion-range (ionChange)="onIonChange($event)">
-      <ion-icon slot="start" name="remove-circle-outline"></ion-icon>
-      <ion-icon slot="end" name="add-circle-outline"></ion-icon>
-    </ion-range>
+        <ion-item>
+          <ion-radio value="milhas">Milhas</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="pes">Pés</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="Jardas">Jardas</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
 
-    <ion-label>{{valorRange}}</ion-label>
+    <h2>Valor Convertido</h2>
+    <ion-label>{{valorConvertido}} {{unidadeSaida}}</ion-label>
   </div>
 </ion-content>
