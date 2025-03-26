@@ -22,10 +22,10 @@ export class HomePage {
   calcularConversao() {
     if (this.unidadeEntrada === 'km' && this.unidadeSaida === 'milhas') {
       this.valorConvertido = this.valorOriginal * 0.621371;
-    } else if (this.unidadeEntrada === 'm' && this.unidadeSaida === 'pes') {
-      this.valorConvertido = this.valorOriginal * 3.28084;
-    } else if (this.unidadeEntrada === 'cm' && this.unidadeSaida === 'jardas') {
-      this.valorConvertido = this.valorOriginal * 0.0109361;
+    } else if (this.unidadeEntrada === 'km' && this.unidadeSaida === 'pes') {
+      this.valorConvertido = this.valorOriginal * 3280.84;
+    } else if (this.unidadeEntrada === 'km' && this.unidadeSaida === 'jardas') {
+      this.valorConvertido = this.valorOriginal * 1093.61;
     } else {
       this.valorConvertido = this.valorOriginal; // Se as unidades forem as mesmas
     }
