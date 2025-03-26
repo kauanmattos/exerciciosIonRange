@@ -15,7 +15,7 @@ export class HomePage {
   constructor() { }
 
   converterUnidades() {
-    this.valorOriginal = parseFloat(this.valorOriginal.toString());
+    this.valorOriginal = parseInt(this.valorOriginal.toString());
     this.calcularConversao();
   }
 
