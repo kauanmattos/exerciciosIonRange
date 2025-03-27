@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  //Definindo as variaveis
   valorOriginal = 0;
   unidadeEntrada = '';
   unidadeSaida = ''
@@ -14,12 +15,15 @@ export class HomePage {
 
   constructor() { }
 
+  //Logica da conversão
   converterUnidades() {
     this.valorOriginal = parseInt(this.valorOriginal.toString());
     this.calcularConversao();
   }
 
   calcularConversao() {
+
+    // Conversão em KM
     if (this.unidadeEntrada === 'km' && this.unidadeSaida === 'milhas') {
       this.valorConvertido = this.valorOriginal * 0.621371;
     } else if (this.unidadeEntrada === 'km' && this.unidadeSaida === 'pes') {
@@ -27,13 +31,15 @@ export class HomePage {
     } else if (this.unidadeEntrada === 'km' && this.unidadeSaida === 'jardas') {
       this.valorConvertido = this.valorOriginal * 1093.61;
 
+      // Conversão em M
     } else if (this.unidadeEntrada === 'm' && this.unidadeSaida === 'milhas') {
       this.valorConvertido = this.valorOriginal * 0.000621371;
     } else if (this.unidadeEntrada === 'm' && this.unidadeSaida === 'pes') {
-      this.valorConvertido = this.valorOriginal * 3.28084; // Correção: usar this.valorOriginal
+      this.valorConvertido = this.valorOriginal * 3.28084;
     } else if (this.unidadeEntrada === 'm' && this.unidadeSaida === 'jardas') {
       this.valorConvertido = this.valorOriginal * 1.09361;
 
+      // Conversão em CM
     } else if (this.unidadeEntrada === 'cm' && this.unidadeSaida === 'milhas'){
       this.valorConvertido = this.valorOriginal * 0.00000621371;
     } else if (this.unidadeEntrada === 'cm' && this.unidadeSaida === 'pes') {
