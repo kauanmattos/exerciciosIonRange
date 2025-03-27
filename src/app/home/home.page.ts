@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
-  valorOriginal: number = 0;
-  unidadeEntrada: string = 'km';
-  unidadeSaida: string = 'milhas'
-  valorConvertido: number = 0;
+  valorOriginal = 0;
+  unidadeEntrada = '';
+  unidadeSaida = ''
+  valorConvertido = 0;
 
   constructor() { }
 
@@ -26,7 +26,21 @@ export class HomePage {
       this.valorConvertido = this.valorOriginal * 3280.84;
     } else if (this.unidadeEntrada === 'km' && this.unidadeSaida === 'jardas') {
       this.valorConvertido = this.valorOriginal * 1093.61;
-    } else {
+
+    } else if (this.unidadeEntrada === 'm' && this.unidadeSaida === 'milhas') {
+      this.valorConvertido = this.valorOriginal * 0.000621371;
+    } else if (this.unidadeEntrada === 'm' && this.unidadeSaida === 'pes') {
+      this.valorConvertido = this.valorOriginal * 3.28084; // Correção: usar this.valorOriginal
+    } else if (this.unidadeEntrada === 'm' && this.unidadeSaida === 'jardas') {
+      this.valorConvertido = this.valorOriginal * 1.09361;
+
+    } else if (this.unidadeEntrada === 'cm' && this.unidadeSaida === 'milhas'){
+      this.valorConvertido = this.valorOriginal * 0.00000621371;
+    } else if (this.unidadeEntrada === 'cm' && this.unidadeSaida === 'pes') {
+      this.valorConvertido = this.valorOriginal * 0.0328084;
+    } else if (this.unidadeEntrada === 'cm' && this.unidadeSaida === 'jardas') {
+      this.valorConvertido = this.valorOriginal * 0.0109361;
+    } else if (this.unidadeEntrada === this.unidadeSaida && this.unidadeEntrada !== '') {
       this.valorConvertido = this.valorOriginal; // Se as unidades forem as mesmas
     }
   }

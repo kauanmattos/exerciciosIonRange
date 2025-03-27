@@ -9,14 +9,17 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <div class="centro">
-      <ion-input type="number" [(ngModel)]="valorOriginal" (ionChange)="converterUnidades()"  style="width: 50px; margin-bottom: 10px;"></ion-input>
+      <ion-input
+        type="number"
+        [(ngModel)]="valorOriginal"
+        (ionInput)="converterUnidades()"  style="width: 50px; margin-bottom: 10px;"
+      ></ion-input>
       <ion-label>Valor Original = {{valorOriginal}}</ion-label>
     </div>
 
     <h2>Unidade de Entrada</h2>
     <ion-list>
-      <ion-radio-group [(ngModel)]="unidadeEntrada">
-        <ion-item>
+      <ion-radio-group [(ngModel)] ="unidadeEntrada" (ionChange)="converterUnidades()"> <ion-item>
           <ion-radio value="km">Quilômetros (km)</ion-radio>
         </ion-item>
         <ion-item>
@@ -30,15 +33,14 @@
 
     <h2>Unidade de Saída</h2>
     <ion-list>
-      <ion-radio-group [(ngModel)]="unidadeSaida">
-        <ion-item>
+      <ion-radio-group [(ngModel)]="unidadeSaida" (ionChange)="converterUnidades()"> <ion-item>
           <ion-radio value="milhas">Milhas</ion-radio>
         </ion-item>
         <ion-item>
           <ion-radio value="pes">Pés</ion-radio>
         </ion-item>
         <ion-item>
-          <ion-radio value="Jardas">Jardas</ion-radio>
+          <ion-radio value="jardas">Jardas</ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>
